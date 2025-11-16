@@ -702,6 +702,7 @@ php artisan migrate:fresh --seed
 ## [ARCH:FOLDERS]
 Category.php in app/Models/
 Note.php relationships and scopes implemented
+Tag.php in app/Models/
 [L920]
 
 ```
