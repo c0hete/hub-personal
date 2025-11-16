@@ -35,6 +35,8 @@
 | TEST_NOTE_EXAMPLE.md | 1.0 | ACTIVE | @meta examples | docs/ |
 | FULL_PROCESS_REVIEW_2025-11-16.md | 1.0 | ACTIVE | System review & analysis | docs/ |
 | ACTION_PLAN_2025-11-16.md | 1.0 | ACTIVE | Quick action items | docs/ |
+| ENCODING_GUIDE.md | 1.0 | ACTIVE | PowerShell encoding reference | docs/ |
+| ENCODING_QUICKFIX.md | 1.0 | ACTIVE | Quick encoding fix guide | docs/ |
 
 ### Scripts (Working)
 
