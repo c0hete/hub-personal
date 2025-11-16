@@ -1,0 +1,34 @@
+{
+    "version":  "1.0.0",
+    "current_session":  {
+                            "conversation_url":  "",
+                            "id":  "2025-11-15-001",
+                            "next_steps":  [
+
+                                           ],
+                            "warning_shown":  false,
+                            "accomplishments":  [
+
+                                                ],
+                            "started":  "19:01:55",
+                            "messages":  2,
+                            "ended":  null,
+                            "danger_shown":  false
+                        },
+    "sessions":  [
+
+                 ],
+    "settings":  {
+                     "warning_threshold":  40,
+                     "danger_threshold":  50,
+                     "show_notifications":  true,
+                     "auto_generate_migration":  true,
+                     "save_conversation_links":  true
+                 },
+    "statistics":  {
+                       "total_sessions":  0,
+                       "total_messages":  0,
+                       "average_messages_per_session":  0,
+                       "last_session_date":  null
+                   }
+}

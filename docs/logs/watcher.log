@@ -1,0 +1,94 @@
+[2025-11-15 17:43:36] [INFO] Created logs directory: C:\Users\JoseA\Projects\hub-personal\docs\logs
+[2025-11-15 17:43:36] [INFO] Watching: 
+[2025-11-15 17:43:36] [INFO] Watching: 
+[2025-11-15 17:43:36] [INFO] Watching: 
+[2025-11-15 17:43:36] [INFO] Watching: 
+[2025-11-15 17:43:36] [INFO] Watching: 
+[2025-11-15 17:43:36] [INFO] Watching: 
+[2025-11-15 17:43:36] [INFO] Watching: 
+[2025-11-15 17:43:36] [INFO] Watcher started successfully
+[2025-11-15 17:43:40] [INFO] Watcher stopped
+[2025-11-15 17:43:43] [INFO] Watching: 
+[2025-11-15 17:43:43] [INFO] Watching: 
+[2025-11-15 17:43:43] [INFO] Watching: 
+[2025-11-15 17:43:43] [INFO] Watching: 
+[2025-11-15 17:43:43] [INFO] Watching: 
+[2025-11-15 17:43:43] [INFO] Watching: 
+[2025-11-15 17:43:44] [INFO] Watching: 
+[2025-11-15 17:43:44] [INFO] Watcher started successfully
+[2025-11-15 17:45:34] [INFO] Watcher stopped
+[2025-11-15 18:49:12] [INFO] Watching: C:\Users\JoseA\Projects\hub-personal\app
+[2025-11-15 18:49:12] [INFO] Watching: C:\Users\JoseA\Projects\hub-personal\database\migrations
+[2025-11-15 18:49:12] [INFO] Watching: C:\Users\JoseA\Projects\hub-personal\database\seeders
+[2025-11-15 18:49:12] [INFO] Watching: C:\Users\JoseA\Projects\hub-personal\config
+[2025-11-15 18:49:12] [INFO] Watching: C:\Users\JoseA\Projects\hub-personal\routes
+[2025-11-15 18:49:12] [WARN] Folder not found, skipping: C:\Users\JoseA\Projects\hub-personal\resources\js\Pages
+[2025-11-15 18:49:12] [WARN] Folder not found, skipping: C:\Users\JoseA\Projects\hub-personal\resources\js\Components
+[2025-11-15 18:49:12] [INFO] Watcher started successfully
+[2025-11-15 18:49:28] [INFO] Watcher stopped
+[2025-11-15 18:49:30] [INFO] Watching: C:\Users\JoseA\Projects\hub-personal\app
+[2025-11-15 18:49:30] [INFO] Watching: C:\Users\JoseA\Projects\hub-personal\database\migrations
+[2025-11-15 18:49:30] [INFO] Watching: C:\Users\JoseA\Projects\hub-personal\database\seeders
+[2025-11-15 18:49:30] [INFO] Watching: C:\Users\JoseA\Projects\hub-personal\config
+[2025-11-15 18:49:30] [INFO] Watching: C:\Users\JoseA\Projects\hub-personal\routes
+[2025-11-15 18:49:30] [WARN] Folder not found, skipping: C:\Users\JoseA\Projects\hub-personal\resources\js\Pages
+[2025-11-15 18:49:30] [WARN] Folder not found, skipping: C:\Users\JoseA\Projects\hub-personal\resources\js\Components
+[2025-11-15 18:49:30] [INFO] Watcher started successfully
+[2025-11-15 19:04:45] [INFO] Watcher stopped
+[2025-11-15 19:04:47] [INFO] Watching: C:\Users\JoseA\Projects\hub-personal\app
+[2025-11-15 19:04:47] [INFO] Watching: C:\Users\JoseA\Projects\hub-personal\database\migrations
+[2025-11-15 19:04:47] [INFO] Watching: C:\Users\JoseA\Projects\hub-personal\database\seeders
+[2025-11-15 19:04:47] [INFO] Watching: C:\Users\JoseA\Projects\hub-personal\config
+[2025-11-15 19:04:47] [INFO] Watching: C:\Users\JoseA\Projects\hub-personal\routes
+[2025-11-15 19:04:47] [INFO] Watching: C:\Users\JoseA\Projects\hub-personal\resources\js\Pages
+[2025-11-15 19:04:47] [INFO] Watching: C:\Users\JoseA\Projects\hub-personal\resources\js\Components
+[2025-11-15 19:04:47] [INFO] Watcher started successfully
+[2025-11-15 19:06:47] [INFO] Watcher stopped
+[2025-11-15 19:06:49] [INFO] Watching: C:\Users\JoseA\Projects\hub-personal\app
+[2025-11-15 19:06:49] [INFO] Watching: C:\Users\JoseA\Projects\hub-personal\database\migrations
+[2025-11-15 19:06:49] [INFO] Watching: C:\Users\JoseA\Projects\hub-personal\database\seeders
+[2025-11-15 19:06:49] [INFO] Watching: C:\Users\JoseA\Projects\hub-personal\config
+[2025-11-15 19:06:49] [INFO] Watching: C:\Users\JoseA\Projects\hub-personal\routes
+[2025-11-15 19:06:49] [INFO] Watching: C:\Users\JoseA\Projects\hub-personal\resources\js\Pages
+[2025-11-15 19:06:49] [INFO] Watching: C:\Users\JoseA\Projects\hub-personal\resources\js\Components
+[2025-11-15 19:06:49] [INFO] Watcher started successfully
+[2025-11-15 19:09:01] [INFO] Watcher stopped
+[2025-11-15 19:09:02] [DEBUG] Project root: C:\Users\JoseA\Projects\hub-personal
+[2025-11-15 19:09:02] [DEBUG] Docs root: C:\Users\JoseA\Projects\hub-personal\docs
+[2025-11-15 19:09:02] [INFO] Watching: C:\Users\JoseA\Projects\hub-personal\app
+[2025-11-15 19:09:02] [INFO] Watching: C:\Users\JoseA\Projects\hub-personal\database\migrations
+[2025-11-15 19:09:02] [INFO] Watching: C:\Users\JoseA\Projects\hub-personal\database\seeders
+[2025-11-15 19:09:02] [INFO] Watching: C:\Users\JoseA\Projects\hub-personal\config
+[2025-11-15 19:09:02] [INFO] Watching: C:\Users\JoseA\Projects\hub-personal\routes
+[2025-11-15 19:09:02] [INFO] Watching: C:\Users\JoseA\Projects\hub-personal\resources\js\Pages
+[2025-11-15 19:09:02] [INFO] Watching: C:\Users\JoseA\Projects\hub-personal\resources\js\Components
+[2025-11-15 19:09:02] [INFO] Watcher started successfully
+[2025-11-15 19:14:15] [INFO] Watcher stopped
+[2025-11-15 19:14:19] [INFO] Watching: C:\Users\JoseA\Projects\hub-personal\app
+[2025-11-15 19:14:19] [INFO] Watching: C:\Users\JoseA\Projects\hub-personal\database\migrations
+[2025-11-15 19:14:19] [INFO] Watching: C:\Users\JoseA\Projects\hub-personal\database\seeders
+[2025-11-15 19:14:19] [INFO] Watching: C:\Users\JoseA\Projects\hub-personal\config
+[2025-11-15 19:14:19] [INFO] Watching: C:\Users\JoseA\Projects\hub-personal\routes
+[2025-11-15 19:14:19] [INFO] Watching: C:\Users\JoseA\Projects\hub-personal\resources\js\Pages
+[2025-11-15 19:14:19] [INFO] Watching: C:\Users\JoseA\Projects\hub-personal\resources\js\Components
+[2025-11-15 19:14:19] [INFO] Watcher started successfully
+[2025-11-15 19:19:04] [INFO] Watcher stopped
+[2025-11-15 19:19:05] [INFO] Watching: C:\Users\JoseA\Projects\hub-personal\app
+[2025-11-15 19:19:05] [INFO] Watching: C:\Users\JoseA\Projects\hub-personal\database\migrations
+[2025-11-15 19:19:05] [INFO] Watching: C:\Users\JoseA\Projects\hub-personal\database\seeders
+[2025-11-15 19:19:05] [INFO] Watching: C:\Users\JoseA\Projects\hub-personal\config
+[2025-11-15 19:19:05] [INFO] Watching: C:\Users\JoseA\Projects\hub-personal\routes
+[2025-11-15 19:19:05] [INFO] Watching: C:\Users\JoseA\Projects\hub-personal\resources\js\Pages
+[2025-11-15 19:19:05] [INFO] Watching: C:\Users\JoseA\Projects\hub-personal\resources\js\Components
+[2025-11-15 19:19:05] [INFO] Watcher started successfully
+[2025-11-15 19:37:57] [INFO] Project root: C:\Users\JoseA\Projects\hub-personal
+[2025-11-15 19:37:57] [INFO] Watcher started (polling mode)
+[2025-11-15 19:37:57] [INFO] Performing initial scan...
+[2025-11-15 19:40:08] [INFO] Watching: C:\Users\JoseA\Projects\hub-personal\app
+[2025-11-15 19:40:08] [INFO] Watching: C:\Users\JoseA\Projects\hub-personal\database\migrations
+[2025-11-15 19:40:08] [INFO] Watching: C:\Users\JoseA\Projects\hub-personal\database\seeders
+[2025-11-15 19:40:08] [INFO] Watching: C:\Users\JoseA\Projects\hub-personal\config
+[2025-11-15 19:40:08] [INFO] Watching: C:\Users\JoseA\Projects\hub-personal\routes
+[2025-11-15 19:40:08] [INFO] Watching: C:\Users\JoseA\Projects\hub-personal\resources\js\Pages
+[2025-11-15 19:40:08] [INFO] Watching: C:\Users\JoseA\Projects\hub-personal\resources\js\Components
+[2025-11-15 19:40:08] [INFO] Watcher started successfully

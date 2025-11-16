@@ -1,0 +1,137 @@
+{
+  "project": {
+    "name": "HubPersonal",
+    "description": "Personal productivity hub for ADHD users",
+    "author": "José Alvarado Mazzei",
+    "repository": null,
+    "license": "Private"
+  },
+  "version": {
+    "current": "2.1.0",
+    "docs": "2.1",
+    "last_updated": "2025-11-03T15:30:00Z",
+    "changelog_file": "02_CONTEXT.md"
+  },
+  "stack": {
+    "backend": {
+      "framework": "Laravel",
+      "version": "11.x",
+      "php": "8.3",
+      "database": "PostgreSQL 15",
+      "cache": "Redis 7.2",
+      "queue": "Redis 7.2"
+    },
+    "frontend": {
+      "framework": "Vue",
+      "version": "3.4",
+      "bridge": "Inertia.js 1.0",
+      "bundler": "Vite 5",
+      "css": "Tailwind CSS 3.4",
+      "state": "Pinia 2.1",
+      "ui": "Headless UI 1.7"
+    }
+  },
+  "documentation": {
+    "index": "00_INDEX.md",
+    "master": "01_MASTER.md",
+    "context": "02_CONTEXT.md",
+    "prompts": "03_PROMPTS.md",
+    "total_lines": 3520,
+    "format": "marker-based",
+    "language": "en-technical"
+  },
+  "structure": {
+    "sections": [
+      "PRD",
+      "STACK",
+      "DATABASE",
+      "ARCHITECTURE",
+      "TESTING",
+      "DESIGN",
+      "AUTH",
+      "PERFORMANCE",
+      "DEPLOY",
+      "ROADMAP"
+    ],
+    "markers": {
+      "quick": "QUICK:topic",
+      "section": "SECTION:topic",
+      "reference": "REF:topic",
+      "line": "L###"
+    }
+  },
+  "agent": {
+    "name": "Claude",
+    "model": "claude-sonnet-4.5",
+    "temperature": 0.2,
+    "style": "concise_technical",
+    "language": "es-mx",
+    "behavior": {
+      "file_headers": true,
+      "naming_conventions": true,
+      "auto_update_docs": true,
+      "format_before_commit": true
+    }
+  },
+  "features": {
+    "core": [
+      "notes",
+      "calendar",
+      "tags",
+      "gamification",
+      "search",
+      "pwa"
+    ],
+    "planned": [
+      "email",
+      "meditation",
+      "achievements"
+    ]
+  },
+  "database": {
+    "tables": 13,
+    "migrations_count": 12,
+    "seeders": true,
+    "factories": true
+  },
+  "testing": {
+    "framework": "Pest",
+    "coverage_target": 80,
+    "ci": "GitHub Actions",
+    "types": [
+      "unit",
+      "feature",
+      "integration"
+    ]
+  },
+  "deployment": {
+    "environments": [
+      "local",
+      "staging",
+      "production"
+    ],
+    "ci_cd": "GitHub Actions",
+    "server": "VPS Contabo 12GB",
+    "domain": "alvaradomazzei.cl",
+    "ssl": "wildcard"
+  },
+  "roadmap": {
+    "mvp": "v0.1",
+    "beta": "v0.5",
+    "launch": "v1.0",
+    "social": "v2.0"
+  },
+  "metrics": {
+    "docs_reduction": "65%",
+    "original_lines": 10000,
+    "clean_lines": 3520,
+    "files_consolidated": 67,
+    "files_final": 4
+  },
+  "tracking": {
+    "last_commit": null,
+    "last_deploy": null,
+    "last_backup": null,
+    "uptime": null
+  }
+}

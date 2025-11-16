@@ -1,0 +1,13 @@
+15-11-2025 - 
+
+├── docs/
+│   ├── 00_INDEX.md           ← En proyecto Claude
+│   ├── 01_MASTER_DOC.md      ← En proyecto Claude
+│   ├── 02_CONTEXT.md         ← Local (changelog)
+│   ├── 03_PROMPTS.md         ← En proyecto Claude
+│   ├── 04_SESSION_START.md   ← 🆕 Copiar/pegar cada sesión
+│   ├── meta.json
+│   └── update_docs.ps1
+
+
+copiados desde C:\Users\JoseA\OneDrive\Desktop\hub\ALL
