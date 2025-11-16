@@ -11,8 +11,8 @@ use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvid
  * @session: 2025-11-16-001
  * @file: app/Providers/AuthServiceProvider.php
  * @refs: [AUTH:POLICY]
- * @changes: Registered NotePolicy for authorization
- * @doc-update: [AUTH:POLICY] ADD NotePolicy registered in AuthServiceProvider
+ * @changes: Created AuthServiceProvider and registered NotePolicy
+ * @doc-update: [AUTH:POLICY] ADD AuthServiceProvider created with NotePolicy registration
  * @meta-end
  */
 

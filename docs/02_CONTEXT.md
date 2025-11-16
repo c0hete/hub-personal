@@ -269,3 +269,43 @@ public function up() {
 ### v2.1.4 - 2025-11-16 00:00
 **Auto-update:** Documentation synchronized
 
+
+### v2.1.5 - 2025-11-16 00:52
+**Auto-update:** Documentation synchronized
+
+
+### v2.1.6 - 2025-11-16 00:52
+**Auto-update:** Documentation synchronized
+
+
+### v2.1.7 - 2025-11-16 01:05
+**Auto-update:** Documentation synchronized
+
+
+### v2.1.8 - 2025-11-16 01:05
+**Auto-update:** Documentation synchronized
+
+
+### v2.1.9 - 2025-11-16 01:05
+**Auto-update:** Documentation synchronized
+
+
+### v2.1.10 - 2025-11-16 01:05
+**Auto-update:** Documentation synchronized
+
+
+### v2.1.11 - 2025-11-16 01:19
+**Auto-update:** Documentation synchronized
+
+
+### v2.1.12 - 2025-11-16 01:19
+**Auto-update:** Documentation synchronized
+
+
+### v2.1.13 - 2025-11-16 01:22
+**Auto-update:** Documentation synchronized
+
+
+### v2.1.14 - 2025-11-16 11:52
+**Auto-update:** Documentation synchronized
+

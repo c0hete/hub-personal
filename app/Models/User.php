@@ -2,10 +2,20 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+
+/**
+ * @meta-start
+ * @session: 2025-11-16-002
+ * @file: app/Models/User.php
+ * @refs: [DB:SCHEMA_USERS]
+ * @changes: Added notes relationship to User model
+ * @doc-update: [DB:SCHEMA_USERS] ADD User has many notes relationship
+ * @meta-end
+ */
 
 class User extends Authenticatable
 {
@@ -43,5 +53,29 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    /**
+     * Relación: usuario tiene muchas notas
+     */
+    public function notes(): HasMany
+    {
+        return $this->hasMany(Note::class);
+    }
+
+    /**
+     * Relación: usuario tiene muchas categorías
+     */
+    public function categories(): HasMany
+    {
+        return $this->hasMany(Category::class);
+    }
+
+    /**
+     * Relación: usuario tiene muchos tags
+     */
+    public function tags(): HasMany
+    {
+        return $this->hasMany(Tag::class);
     }
 }
