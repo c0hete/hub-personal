@@ -506,7 +506,9 @@ CREATE INDEX idx_notes_search ON notes USING gin(to_tsvector('english', coalesce
 
 ---
 
-## [DB:SCHEMA_TAGS] [L620]
+## [DB:SCHEMA_TAGS]
+Tags tables created and tested
+[L620]
 
 ```sql
 CREATE TABLE tags (
