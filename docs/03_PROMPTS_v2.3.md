@@ -1,7 +1,7 @@
 # [PROMPTS] HUBPERSONAL - AGENT RULES
 
-**Version:** 2.1  
-**Last Update:** 2025-11-03  
+**Version:** 2.4   
+**Last Update:** 2025-11-16
 **Format:** Clean (rules only)
 
 ---
@@ -620,9 +620,6 @@ php artisan make:listener SendNoteNotification --event=NoteCreated
 
 ---
 
-# ACTUALIZACIÓN PARA 03_PROMPTS_v2.3.md
-
-**Agregar después de línea 650 (después de [RULES:FILE_CREATION_WORKFLOW])**
 
 ---
 
