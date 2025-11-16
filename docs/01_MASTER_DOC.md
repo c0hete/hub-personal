@@ -469,6 +469,9 @@ priority VARCHAR(10) DEFAULT 'medium'
 color VARCHAR(20) DEFAULT 'yellow'
 priority VARCHAR(10) DEFAULT 'medium'
 color VARCHAR(20) DEFAULT 'yellow'
+priority VARCHAR(10) DEFAULT 'medium'
+color VARCHAR(20) DEFAULT 'yellow'
+archived BOOLEAN DEFAULT false
 [L590]
 
 ```sql
@@ -1380,6 +1383,9 @@ priority VARCHAR(10) DEFAULT 'medium'
 color VARCHAR(20) DEFAULT 'yellow'
 priority VARCHAR(10) DEFAULT 'medium'
 color VARCHAR(20) DEFAULT 'yellow'
+priority VARCHAR(10) DEFAULT 'medium'
+color VARCHAR(20) DEFAULT 'yellow'
+archived BOOLEAN DEFAULT false
 L590
 - [DEPLOY:CICD] L3050
 - [ROADMAP:MVP] L3320
