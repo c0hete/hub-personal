@@ -699,7 +699,9 @@ php artisan migrate:fresh --seed
 
 # [SECTION:ARCHITECTURE] SOFTWARE ARCHITECTURE [L900]
 
-## [ARCH:FOLDERS] [L920]
+## [ARCH:FOLDERS]
+Category.php in app/Models/
+[L920]
 
 ```
 hub-personal/
