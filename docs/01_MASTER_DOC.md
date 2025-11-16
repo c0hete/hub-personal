@@ -440,7 +440,9 @@ email_accounts | emails | calendar_events | settings
 
 ---
 
-## [DB:SCHEMA_USERS] [L570]
+## [DB:SCHEMA_USERS]
+User has many notes relationship
+[L570]
 
 ```sql
 CREATE TABLE users (
