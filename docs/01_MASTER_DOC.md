@@ -1097,6 +1097,7 @@ Route::middleware(['auth', 'verified'])->group(function() {
 
 ## [AUTH:POLICY]
 NotePolicy ensures users can only access their own notes
+AuthServiceProvider created with NotePolicy registration
 [L1900]
 
 ```php
