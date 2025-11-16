@@ -11,10 +11,10 @@
 **CRITICAL: Read _INDEX.md FIRST**
 
 **Navigation:**
-- [QUICK:topic] → 3-5 line summary
-- [SECTION:topic] → Full section
-- [REF:topic] → Cross-reference
-- [L###] → Line number
+- [QUICK:topic] â†’ 3-5 line summary
+- [SECTION:topic] â†’ Full section
+- [REF:topic] â†’ Cross-reference
+- [L###] â†’ Line number
 
 **Search:** Ctrl+F with EXACT marker (case-sensitive)
 
@@ -38,7 +38,7 @@
 **Core:**
 Notes(quick+scheduled) | Calendar | Tags | Gamification | Email | Meditation | QuickLinks | Search | PWA
 
-**User:** José (ADHD)  
+**User:** JosÃ© (ADHD)  
 **Goal:** Centralize digital life without stress
 
 ---
@@ -97,9 +97,9 @@ Notes(quick+scheduled) | Calendar | Tags | Gamification | Email | Meditation | Q
 - Red: Important
 
 **Interactions:**
-- Click → Open item
-- Drag → Reschedule
-- Right-click → Quick actions
+- Click â†’ Open item
+- Drag â†’ Reschedule
+- Right-click â†’ Quick actions
 
 **Tech:**
 - Library: FullCalendar + Vue
@@ -422,7 +422,7 @@ import { PlusIcon } from '@heroicons/vue/24/outline'
 **Bundle (production):**
 - JS: ~188KB gzipped
 - CSS: ~30KB gzipped
-- Total: ~220KB ✅
+- Total: ~220KB âœ…
 
 ---
 ---
@@ -440,9 +440,7 @@ email_accounts | emails | calendar_events | settings
 
 ---
 
-## [DB:SCHEMA_USERS]
-User has many notes relationship
-[L570]
+## [DB:SCHEMA_USERS] [L570]
 
 ```sql
 CREATE TABLE users (
@@ -464,20 +462,7 @@ CREATE INDEX idx_users_points ON users(points DESC);
 
 ---
 
-## [DB:SCHEMA_NOTES]
-priority VARCHAR(10) DEFAULT 'medium'
-color VARCHAR(20) DEFAULT 'yellow'
-priority VARCHAR(10) DEFAULT 'medium'
-color VARCHAR(20) DEFAULT 'yellow'
-priority VARCHAR(10) DEFAULT 'medium'
-color VARCHAR(20) DEFAULT 'yellow'
-priority VARCHAR(10) DEFAULT 'medium'
-color VARCHAR(20) DEFAULT 'yellow'
-archived BOOLEAN DEFAULT false
-status VARCHAR(20) DEFAULT 'active'
-Categories table created (user-specific)
-Migration created and tested
-[L590]
+## [DB:SCHEMA_NOTES] [L590]
 
 ```sql
 CREATE TABLE notes (
@@ -508,9 +493,7 @@ CREATE INDEX idx_notes_search ON notes USING gin(to_tsvector('english', coalesce
 
 ---
 
-## [DB:SCHEMA_TAGS]
-Tags tables created and tested
-[L620]
+## [DB:SCHEMA_TAGS] [L620]
 
 ```sql
 CREATE TABLE tags (
@@ -650,24 +633,24 @@ CREATE INDEX idx_calendar_date_range ON calendar_events(start_date, end_date);
 
 ```
 users
-  ├─ has many → notes
-  ├─ has many → tags
-  ├─ has many → email_accounts
-  ├─ has many → calendar_events
-  └─ many to many → achievements
+  â”œâ”€ has many â†’ notes
+  â”œâ”€ has many â†’ tags
+  â”œâ”€ has many â†’ email_accounts
+  â”œâ”€ has many â†’ calendar_events
+  â””â”€ many to many â†’ achievements
 
 notes
-  ├─ belongs to → user
-  ├─ belongs to → category
-  └─ many to many → tags
+  â”œâ”€ belongs to â†’ user
+  â”œâ”€ belongs to â†’ category
+  â””â”€ many to many â†’ tags
 
 tags
-  ├─ belongs to → user
-  └─ many to many → notes
+  â”œâ”€ belongs to â†’ user
+  â””â”€ many to many â†’ notes
 
 email_accounts
-  ├─ belongs to → user
-  └─ has many → emails
+  â”œâ”€ belongs to â†’ user
+  â””â”€ has many â†’ emails
 ```
 
 ---
@@ -703,82 +686,77 @@ php artisan migrate:fresh --seed
 
 # [SECTION:ARCHITECTURE] SOFTWARE ARCHITECTURE [L900]
 
-## [ARCH:FOLDERS]
-Category.php in app/Models/
-Note.php relationships and scopes implemented
-Tag.php in app/Models/
-NoteController.php with CRUD implementation
-[L920]
+## [ARCH:FOLDERS] [L920]
 
 ```
 hub-personal/
-├── app/
-│   ├── Http/
-│   │   ├── Controllers/
-│   │   │   ├── NoteController.php
-│   │   │   ├── CalendarController.php
-│   │   │   ├── TagController.php
-│   │   │   └── EmailController.php
-│   │   ├── Middleware/
-│   │   └── Requests/
-│   ├── Models/
-│   │   ├── User.php
-│   │   ├── Note.php
-│   │   ├── Tag.php
-│   │   └── Email.php
-│   ├── Events/
-│   ├── Listeners/
-│   ├── Jobs/
-│   │   └── EmailSyncJob.php
-│   ├── Policies/
-│   └── Observers/
-│
-├── resources/
-│   ├── js/
-│   │   ├── app.js
-│   │   ├── Pages/
-│   │   │   ├── Dashboard.vue
-│   │   │   ├── Notes/
-│   │   │   ├── Calendar/
-│   │   │   └── Auth/
-│   │   ├── Components/
-│   │   │   ├── NoteCard.vue
-│   │   │   ├── TagInput.vue
-│   │   │   └── PointsCounter.vue
-│   │   ├── Layouts/
-│   │   │   ├── AppLayout.vue
-│   │   │   └── GuestLayout.vue
-│   │   ├── Stores/
-│   │   │   ├── notes.js
-│   │   │   ├── calendar.js
-│   │   │   └── user.js
-│   │   └── Composables/
-│   ├── css/
-│   │   └── app.css
-│   └── views/
-│       └── app.blade.php
-│
-├── routes/
-│   ├── web.php
-│   └── api.php
-│
-├── database/
-│   ├── migrations/
-│   ├── seeders/
-│   └── factories/
-│
-├── tests/
-│   ├── Feature/
-│   └── Unit/
-│
-├── public/
-│   └── build/
-│
-├── .env
-├── composer.json
-├── package.json
-├── vite.config.js
-└── tailwind.config.js
+â”œâ”€â”€ app/
+â”‚   â”œâ”€â”€ Http/
+â”‚   â”‚   â”œâ”€â”€ Controllers/
+â”‚   â”‚   â”‚   â”œâ”€â”€ NoteController.php
+â”‚   â”‚   â”‚   â”œâ”€â”€ CalendarController.php
+â”‚   â”‚   â”‚   â”œâ”€â”€ TagController.php
+â”‚   â”‚   â”‚   â””â”€â”€ EmailController.php
+â”‚   â”‚   â”œâ”€â”€ Middleware/
+â”‚   â”‚   â””â”€â”€ Requests/
+â”‚   â”œâ”€â”€ Models/
+â”‚   â”‚   â”œâ”€â”€ User.php
+â”‚   â”‚   â”œâ”€â”€ Note.php
+â”‚   â”‚   â”œâ”€â”€ Tag.php
+â”‚   â”‚   â””â”€â”€ Email.php
+â”‚   â”œâ”€â”€ Events/
+â”‚   â”œâ”€â”€ Listeners/
+â”‚   â”œâ”€â”€ Jobs/
+â”‚   â”‚   â””â”€â”€ EmailSyncJob.php
+â”‚   â”œâ”€â”€ Policies/
+â”‚   â””â”€â”€ Observers/
+â”‚
+â”œâ”€â”€ resources/
+â”‚   â”œâ”€â”€ js/
+â”‚   â”‚   â”œâ”€â”€ app.js
+â”‚   â”‚   â”œâ”€â”€ Pages/
+â”‚   â”‚   â”‚   â”œâ”€â”€ Dashboard.vue
+â”‚   â”‚   â”‚   â”œâ”€â”€ Notes/
+â”‚   â”‚   â”‚   â”œâ”€â”€ Calendar/
+â”‚   â”‚   â”‚   â””â”€â”€ Auth/
+â”‚   â”‚   â”œâ”€â”€ Components/
+â”‚   â”‚   â”‚   â”œâ”€â”€ NoteCard.vue
+â”‚   â”‚   â”‚   â”œâ”€â”€ TagInput.vue
+â”‚   â”‚   â”‚   â””â”€â”€ PointsCounter.vue
+â”‚   â”‚   â”œâ”€â”€ Layouts/
+â”‚   â”‚   â”‚   â”œâ”€â”€ AppLayout.vue
+â”‚   â”‚   â”‚   â””â”€â”€ GuestLayout.vue
+â”‚   â”‚   â”œâ”€â”€ Stores/
+â”‚   â”‚   â”‚   â”œâ”€â”€ notes.js
+â”‚   â”‚   â”‚   â”œâ”€â”€ calendar.js
+â”‚   â”‚   â”‚   â””â”€â”€ user.js
+â”‚   â”‚   â””â”€â”€ Composables/
+â”‚   â”œâ”€â”€ css/
+â”‚   â”‚   â””â”€â”€ app.css
+â”‚   â””â”€â”€ views/
+â”‚       â””â”€â”€ app.blade.php
+â”‚
+â”œâ”€â”€ routes/
+â”‚   â”œâ”€â”€ web.php
+â”‚   â””â”€â”€ api.php
+â”‚
+â”œâ”€â”€ database/
+â”‚   â”œâ”€â”€ migrations/
+â”‚   â”œâ”€â”€ seeders/
+â”‚   â””â”€â”€ factories/
+â”‚
+â”œâ”€â”€ tests/
+â”‚   â”œâ”€â”€ Feature/
+â”‚   â””â”€â”€ Unit/
+â”‚
+â”œâ”€â”€ public/
+â”‚   â””â”€â”€ build/
+â”‚
+â”œâ”€â”€ .env
+â”œâ”€â”€ composer.json
+â”œâ”€â”€ package.json
+â”œâ”€â”€ vite.config.js
+â””â”€â”€ tailwind.config.js
 ```
 
 **Naming:**
@@ -861,12 +839,12 @@ export function useNotes() {
 Route::get('/', fn() => Inertia::render('Dashboard'))->name('dashboard');
 
 Route::resource('notes', NoteController::class);
-// GET    /notes           → Notes/Index.vue
-// GET    /notes/create    → Notes/Create.vue
-// POST   /notes           → notes.store
-// GET    /notes/{id}      → Notes/Show.vue
-// PUT    /notes/{id}      → notes.update
-// DELETE /notes/{id}      → notes.destroy
+// GET    /notes           â†’ Notes/Index.vue
+// GET    /notes/create    â†’ Notes/Create.vue
+// POST   /notes           â†’ notes.store
+// GET    /notes/{id}      â†’ Notes/Show.vue
+// PUT    /notes/{id}      â†’ notes.update
+// DELETE /notes/{id}      â†’ notes.destroy
 
 Route::get('/calendar', [CalendarController::class, 'index'])->name('calendar');
 
@@ -893,20 +871,20 @@ function goToNote(id) {
 
 ```
 Event: NoteCreated
-  → AwardPointsListener (+5)
-  → CheckAchievementsListener
-  → LogActivityListener
+  â†’ AwardPointsListener (+5)
+  â†’ CheckAchievementsListener
+  â†’ LogActivityListener
 
 Event: EmailSynced
-  → AwardPointsListener (+3 per email)
+  â†’ AwardPointsListener (+3 per email)
 
 Event: MeditationCompleted
-  → AwardPointsListener (+20)
-  → UpdateStreakListener
+  â†’ AwardPointsListener (+20)
+  â†’ UpdateStreakListener
 
 Event: AchievementUnlocked
-  → ShowConfettiListener
-  → SendNotificationListener
+  â†’ ShowConfettiListener
+  â†’ SendNotificationListener
 ```
 
 ---
@@ -1098,10 +1076,7 @@ Route::middleware(['auth', 'verified'])->group(function() {
 
 ---
 
-## [AUTH:POLICY]
-NotePolicy ensures users can only access their own notes
-AuthServiceProvider created with NotePolicy registration
-[L1900]
+## [AUTH:POLICY] [L1900]
 
 ```php
 // app/Policies/NotePolicy.php
@@ -1144,13 +1119,13 @@ $notes = Cache::remember('user.notes.'.$userId, 300, fn() =>
 ## [PERF:QUERIES] [L2100]
 
 ```php
-// ❌ Bad (N+1)
+// âŒ Bad (N+1)
 $notes = Note::all();
 foreach($notes as $note) {
     echo $note->user->name; // N queries
 }
 
-// ✅ Good
+// âœ… Good
 $notes = Note::with('user')->get();
 foreach($notes as $note) {
     echo $note->user->name; // 1 query
@@ -1174,11 +1149,11 @@ foreach($notes as $note) {
 
 ## [QUICK:DEPLOY] [L3020]
 
-**Pipeline:** GitHub Actions → Staging → Production
+**Pipeline:** GitHub Actions â†’ Staging â†’ Production
 
 **Process:**
-1. Push to develop → Staging
-2. Push to main → Production
+1. Push to develop â†’ Staging
+2. Push to main â†’ Production
 3. Tests must pass (80%)
 
 ---
@@ -1340,18 +1315,18 @@ find $BACKUP_DIR -name "*.gz" -mtime +30 -delete
 ### MVP v0.1 (4 weeks)
 
 **Must have:**
-- ✅ Auth (Breeze Vue)
-- ✅ Notes CRUD
-- ✅ Tags
-- ✅ Calendar
-- ✅ Gamification (points)
-- ✅ Search
-- ✅ PWA
+- âœ… Auth (Breeze Vue)
+- âœ… Notes CRUD
+- âœ… Tags
+- âœ… Calendar
+- âœ… Gamification (points)
+- âœ… Search
+- âœ… PWA
 
 **Not in MVP:**
-- ❌ Email
-- ❌ Meditation
-- ❌ Achievements
+- âŒ Email
+- âŒ Meditation
+- âŒ Achievements
 
 **Timeline:**
 ```
@@ -1391,20 +1366,7 @@ Week 4: Testing + Deploy
 
 **Quick access:**
 - [QUICK:STACK] L420
-- [DB:SCHEMA_NOTES]
-priority VARCHAR(10) DEFAULT 'medium'
-color VARCHAR(20) DEFAULT 'yellow'
-priority VARCHAR(10) DEFAULT 'medium'
-color VARCHAR(20) DEFAULT 'yellow'
-priority VARCHAR(10) DEFAULT 'medium'
-color VARCHAR(20) DEFAULT 'yellow'
-priority VARCHAR(10) DEFAULT 'medium'
-color VARCHAR(20) DEFAULT 'yellow'
-archived BOOLEAN DEFAULT false
-status VARCHAR(20) DEFAULT 'active'
-Categories table created (user-specific)
-Migration created and tested
-L590
+- [DB:SCHEMA_NOTES] L590
 - [DEPLOY:CICD] L3050
 - [ROADMAP:MVP] L3320
 

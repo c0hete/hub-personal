@@ -1,7 +1,7 @@
 # [PROMPTS] HUBPERSONAL - AGENT RULES
 
-**Version:** 2.3  
-**Last Update:** 2025-11-16  
+**Version:** 2.1  
+**Last Update:** 2025-11-03  
 **Format:** Clean (rules only)
 
 ---
@@ -24,38 +24,23 @@
 
 ## [RULES:FILE_HEADERS] [L30]
 
-**NEVER add file path comment at top - use @meta block instead:**
+**ALWAYS add file path comment at top:**
 
-❌ INCORRECT:
 ```php
-<?php
-// File: app/Models/Note.php  ← NO HACER ESTO
-
-/**
- * @meta-start
- * @file: app/Models/Note.php
- * ...
- */
+// File: app/Models/Note.php
 ```
 
-✅ CORRECT:
-```php
-<?php
-
-/**
- * @meta-start
- * @file: app/Models/Note.php  ← Solo aquí
- * ...
- */
-
-namespace App\Models;
+```vue
+<!-- File: resources/js/Pages/Notes/Index.vue -->
 ```
 
-**Reason:** @meta block already contains file path, no duplication needed.
+```js
+// File: resources/js/Stores/notes.js
+```
 
 ---
 
-## [RULES:NAMING] [L65]
+## [RULES:NAMING] [L50]
 
 **Models:** English, singular, PascalCase
 ```php
@@ -99,11 +84,13 @@ user_id, created_at, is_pinned
 
 ---
 
-## [RULES:MIGRATIONS] [L115]
+## [RULES:MIGRATIONS] [L100]
 
 **ALWAYS check table existence:**
 
 ```php
+// File: database/migrations/2025_11_03_create_notes_table.php
+
 public function up() {
     if (!Schema::hasTable('notes')) {
         Schema::create('notes', function (Blueprint $table) {
@@ -128,7 +115,7 @@ public function down() {
 
 ---
 
-## [RULES:BLADE] [L145]
+## [RULES:BLADE] [L135]
 
 **Structure:**
 
@@ -148,11 +135,13 @@ public function down() {
 
 ---
 
-## [RULES:VUE_COMPONENTS] [L165]
+## [RULES:VUE_COMPONENTS] [L155]
 
 **Structure:**
 
 ```vue
+<!-- File: resources/js/Components/NoteCard.vue -->
+
 <script setup>
 import { ref, computed } from 'vue'
 
@@ -206,11 +195,13 @@ function handleEdit() {
 
 ---
 
-## [RULES:INERTIA_PAGES] [L220]
+## [RULES:INERTIA_PAGES] [L215]
 
 **Structure:**
 
 ```vue
+<!-- File: resources/js/Pages/Notes/Index.vue -->
+
 <script setup>
 import { Head, router } from '@inertiajs/vue3'
 import AppLayout from '@/Layouts/AppLayout.vue'
@@ -251,6 +242,8 @@ function createNote() {
 **Structure:**
 
 ```php
+// File: app/Http/Controllers/NoteController.php
+
 namespace App\Http\Controllers;
 
 use App\Models\Note;
@@ -291,11 +284,13 @@ class NoteController extends Controller
 
 ---
 
-## [RULES:MODELS] [L305]
+## [RULES:MODELS] [L310]
 
 **Structure:**
 
 ```php
+// File: app/Models/Note.php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
@@ -346,11 +341,13 @@ class Note extends Model
 
 ---
 
-## [RULES:PINIA_STORES] [L365]
+## [RULES:PINIA_STORES] [L375]
 
 **Structure:**
 
 ```js
+// File: resources/js/Stores/notes.js
+
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
 import axios from 'axios'
@@ -398,11 +395,13 @@ export const useNotesStore = defineStore('notes', () => {
 
 ---
 
-## [RULES:TESTING] [L420]
+## [RULES:TESTING] [L435]
 
 **Use Pest syntax:**
 
 ```php
+// File: tests/Feature/NoteTest.php
+
 test('user can create note', function () {
     $user = User::factory()->create();
     
@@ -425,7 +424,7 @@ test('user cannot create note without content', function () {
 
 ---
 
-## [RULES:CODE_STYLE] [L450]
+## [RULES:CODE_STYLE] [L470]
 
 **PSR-12:**
 - 4 spaces (no tabs)
@@ -446,7 +445,7 @@ php artisan test
 
 ---
 
-## [RULES:COMMENTS] [L470]
+## [RULES:COMMENTS] [L495]
 
 **Spanish for business logic:**
 
@@ -467,7 +466,7 @@ $notes = Note::with('tags', 'user')->get();
 
 ---
 
-## [RULES:GIT_COMMITS] [L490]
+## [RULES:GIT_COMMITS] [L515]
 
 **Format:**
 ```
@@ -488,9 +487,16 @@ test(notes): add note creation tests
 - test: Tests
 - chore: Maintenance
 
+**CRITICAL:**
+- ❌ NO emojis in commit messages
+- ❌ NO stickers or icons
+- ✅ Plain text only
+- ✅ English language
+- ✅ Clear and concise
+
 ---
 
-## [RULES:DOCUMENTATION_UPDATES] [L515]
+## [RULES:DOCUMENTATION_UPDATES] [L545]
 
 **When modifying MASTER.md:**
 
@@ -498,13 +504,13 @@ test(notes): add note creation tests
 ```json
 {
   "version": "2.2.0",
-  "last_modified": "2025-11-16T15:30:00Z"
+  "last_modified": "2025-11-03T15:30:00Z"
 }
 ```
 
 2. Add entry to CONTEXT.md [CHANGELOG:MASTER]
 ```markdown
-### v2.2.0 - 2025-11-16
+### v2.2.0 - 2025-11-03
 **Changes:**
 - Added: Email sync feature
 - Modified: [DB:SCHEMA_EMAIL] L700
@@ -512,7 +518,7 @@ test(notes): add note creation tests
 
 3. Update [UPDATES:LOG] in CONTEXT.md
 ```markdown
-### 2025-11-16 15:30
+### 2025-11-03 15:30
 **Action:** Added email feature to MASTER
 **Modified:** [DB:SCHEMA_EMAIL] L700-750
 ```
@@ -521,15 +527,15 @@ test(notes): add note creation tests
 
 ---
 
-## [RULES:CODE_CHANGES] [L545]
+## [RULES:CODE_CHANGES] [L580]
 
 **When creating/modifying files:**
 
-1. Follow naming conventions
-2. Run Pint before commit
-3. Write test if feature
-4. Update CONTEXT if significant change
-5. **Add @meta block if affects MASTER.md**
+1. Add file path comment
+2. Follow naming conventions
+3. Run Pint before commit
+4. Write test if feature
+5. Update CONTEXT if significant change
 
 **Significant changes:**
 - New database table
@@ -539,7 +545,7 @@ test(notes): add note creation tests
 
 ---
 
-## [RULES:FILE_CREATION_WORKFLOW] [L565]
+## [RULES:FILE_CREATION_WORKFLOW] [L610]
 
 **ALWAYS provide creation command BEFORE code:**
 
@@ -614,7 +620,7 @@ php artisan make:listener SendNoteNotification --event=NoteCreated
 
 ---
 
-## [RULES:TESTING_URLS] [L640]
+## [RULES:TESTING_URLS] [L710]
 
 **ALWAYS provide testing URLs after feature completion:**
 
@@ -628,7 +634,6 @@ Base URL: http://localhost:8000
 - List:   http://localhost:8000/notes
 - Create: http://localhost:8000/notes/create
 - Edit:   http://localhost:8000/notes/{id}/edit
-- Show:   http://localhost:8000/notes/{id}
 
 ### Auth (if needed)
 - Login:    http://localhost:8000/login
@@ -646,7 +651,7 @@ Base URL: http://localhost:8000
 
 ---
 
-## [RULES:DEPENDENCIES] [L680]
+## [RULES:DEPENDENCIES] [L760]
 
 **NEVER use undocumented dependencies without verification:**
 
@@ -666,13 +671,13 @@ grep -n "package-name" docs/01_MASTER_DOC.md
 
 **ASK user:**
 ```
-Package NOT documented: @package/name
-Purpose: Description
-Size: ~XXkB
+Package NOT documented: @heroicons/vue
+Purpose: SVG icons
+Size: ~50KB
 
 Options:
 A) Install and document
-B) Use alternative
+B) Use alternative (emojis/CSS)
 C) Cancel feature
 ```
 
@@ -738,12 +743,12 @@ Select-String -Path "file.md" -Pattern "text" -CaseSensitive:$false
 - ❌ NEVER assume package is approved
 - ✅ ALWAYS use Select-String (PowerShell) or grep (Linux/Mac)
 - ✅ ALWAYS verify in [STACK:DEPENDENCIES]
-- ✅ ALWAYS ask if not found (unless auto-approved)
+- ✅ ALWAYS ask if not found
 - ✅ ALWAYS document after approval
 
 ---
 
-## [RULES:ERROR_HANDLING] [L770]
+## [RULES:ERROR_HANDLING] [L850]
 
 **Controllers:**
 
@@ -770,18 +775,18 @@ try {
 
 ---
 
-## [RULES:QUERIES] [L795]
+## [RULES:QUERIES] [L880]
 
 **Avoid N+1:**
 
 ```php
-// ❌ Bad
+// âŒ Bad
 $notes = Note::all();
 foreach ($notes as $note) {
     echo $note->user->name; // N queries
 }
 
-// ✅ Good
+// âœ… Good
 $notes = Note::with('user')->get();
 foreach ($notes as $note) {
     echo $note->user->name; // 1 query
@@ -795,7 +800,7 @@ Note::with('user', 'tags', 'category')->get();
 
 ---
 
-## [RULES:SECURITY] [L820]
+## [RULES:SECURITY] [L905]
 
 **Always authorize:**
 
@@ -831,7 +836,7 @@ protected $guarded = ['id', 'user_id'];
 
 ---
 
-## [RULES:PERFORMANCE] [L855]
+## [RULES:PERFORMANCE] [L940]
 
 **Cache queries:**
 
@@ -856,7 +861,7 @@ $table->index(['user_id', 'created_at']);
 
 ---
 
-## [AUTO:BEHAVIOR] [L880]
+## [AUTO:BEHAVIOR] [L965]
 
 **On every response:**
 - Check [DECISIONS:TECHNICAL] in CONTEXT
@@ -864,10 +869,10 @@ $table->index(['user_id', 'created_at']);
 - Maintain consistency with MASTER
 
 **On code generation:**
+- Add file path comment
 - Follow naming conventions
 - Include proper error handling
 - Add comments for business logic
-- **ADD @meta block if code affects MASTER.md**
 
 **On MASTER updates:**
 - Version bump in meta.json
@@ -875,154 +880,42 @@ $table->index(['user_id', 'created_at']);
 - Log entry with timestamp
 - Update INDEX if needed
 
-**On metadata protocol:**
-- Use 06_METADATA_PROTOCOL.md specification
-- Add @meta block for architectural changes
-- Use ASCII-only in PowerShell scripts
-- See POWERSHELL_STANDARDS.md for encoding rules
+---
+
+## [RULES:FILE_DELIVERY] [L900]
+
+**When providing files for download at session end:**
+
+### Naming convention:
+```
+Core docs with version:
+- 01_MASTER_DOC_v{VERSION}.md
+- 03_PROMPTS_v{VERSION}.md
+
+Migrations with date:
+- 10_MIGRATION_{YYYY-MM-DD}.md
+
+Always current (no version):
+- 00_INDEX.md
+- FILE_REGISTRY.md
+- 06_METADATA_PROTOCOL.md
+```
+
+### Delivery package must include:
+
+**1. Versioned files with current version/date**
+
+**2. cleanup_old_versions.ps1 script**
+
+**3. Installation instructions**
+
+### CRITICAL rules:
+
+- ALWAYS generate cleanup script
+- ALWAYS update FILE_REGISTRY.md DEPRECATED section
+- ALWAYS use version in filenames (except INDEX, REGISTRY, PROTOCOL)
+- ALWAYS list old files to delete in cleanup script
 
 ---
 
-## [RULES:METADATA_PROTOCOL] [L910]
-
-**When to add @meta block:**
-
-ALWAYS add when code affects:
-- Database schema changes
-- New models/controllers
-- Architecture decisions
-- Stack/dependency updates
-- API endpoint changes
-- Design system updates
-- Auth/authorization changes
-- Performance optimizations
-
-NEVER add for:
-- Bug fixes (no architectural impact)
-- Refactoring (same functionality)
-- Tests only
-- Comment/formatting changes
-- Minor UI tweaks
-
-**@meta block structure:**
-
-```php
-/**
- * @meta-start
- * @session: YYYY-MM-DD-NNN
- * @file: path/to/file
- * @refs: [MARKER, MARKER]
- * @changes: Human-readable description
- * @doc-update: [MARKER] ACTION details
- * @doc-update: [MARKER] ACTION details
- * @meta-end
- */
-```
-
-**Required fields:**
-- @session: YYYY-MM-DD-NNN format
-- @file: Relative path to file
-- @refs: Array of MASTER.md markers (NO line numbers)
-- @changes: Clear description of changes
-- @doc-update: One or more update instructions
-
-**Optional fields:**
-- @feature: Feature name (kebab-case)
-- @tests: Related test class/method
-
-**Actions allowed:**
-- ADD: Append new content
-- MODIFY: Change existing (old -> new)
-- DELETE: Remove content
-- MOVE: Relocate between sections
-
-**Example:**
-
-```php
-/**
- * @meta-start
- * @session: 2025-11-16-002
- * @file: app/Models/User.php
- * @refs: [DB:SCHEMA_USERS]
- * @changes: Added avatar and timezone fields
- * @doc-update: [DB:SCHEMA_USERS] ADD avatar VARCHAR(255) NULL
- * @doc-update: [DB:SCHEMA_USERS] ADD timezone VARCHAR(50) DEFAULT 'UTC'
- * @tests: UserTest::test_avatar_upload
- * @meta-end
- */
-
-namespace App\Models;
-
-class User extends Authenticatable
-{
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-        'avatar',      // NEW
-        'timezone',    // NEW
-    ];
-}
-```
-
-**CRITICAL rules:**
-- Use markers ONLY, never line numbers: `[DB:SCHEMA_USERS]` not `[DB:SCHEMA_USERS#L570]`
-- Multiple @doc-update lines allowed
-- Arrows in MODIFY: use `->` not Unicode `→`
-- See 06_METADATA_PROTOCOL.md for full specification
-
----
-
-## [RULES:POWERSHELL_ENCODING] [L1010]
-
-**For .ps1 PowerShell scripts:**
-
-NEVER use:
-- Emojis (checkmark, cross, warning, info, rocket, wave)
-- Unicode arrows (rightarrow, doublearrow)
-- Smart quotes (curly quotes/apostrophes)
-- Box drawing (unicode box characters)
-- Any character requiring Alt codes
-
-ALWAYS use:
-- ASCII equivalents: [OK] [ERROR] [WARN] [INFO]
-- Plain arrows: -> not unicode arrow
-- Straight quotes: " and ' only
-- Simple boxes: === or ---
-- Characters from standard US keyboard
-
-**Function templates:**
-
-```powershell
-function Write-Success { 
-    param([string]$Message) 
-    Write-Host "[OK] $Message" -ForegroundColor Green 
-}
-
-function Write-Error-Custom { 
-    param([string]$Message) 
-    Write-Host "[ERROR] $Message" -ForegroundColor Red 
-}
-
-function Write-Warning-Custom { 
-    param([string]$Message) 
-    Write-Host "[WARN] $Message" -ForegroundColor Yellow 
-}
-
-function Write-Info { 
-    param([string]$Message) 
-    Write-Host "[INFO] $Message" -ForegroundColor Cyan 
-}
-```
-
-**For .md documentation:**
-- UTF-8 freely
-- Emojis encouraged
-- Unicode symbols OK
-- Smart quotes OK
-
-See POWERSHELL_STANDARDS.md for complete rules.
-
----
-
-**[PROMPTS:END]** [L1065]
+**[PROMPTS:END]** [L930]
