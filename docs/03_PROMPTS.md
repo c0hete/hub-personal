@@ -1,7 +1,7 @@
 # [PROMPTS] HUBPERSONAL - AGENT RULES
 
-**Version:** 2.1  
-**Last Update:** 2025-11-03  
+**Version:** 2.2  
+**Last Update:** 2025-11-15  
 **Format:** Clean (rules only)
 
 ---
@@ -497,13 +497,13 @@ test(notes): add note creation tests
 ```json
 {
   "version": "2.2.0",
-  "last_modified": "2025-11-03T15:30:00Z"
+  "last_modified": "2025-11-15T15:30:00Z"
 }
 ```
 
 2. Add entry to CONTEXT.md [CHANGELOG:MASTER]
 ```markdown
-### v2.2.0 - 2025-11-03
+### v2.2.0 - 2025-11-15
 **Changes:**
 - Added: Email sync feature
 - Modified: [DB:SCHEMA_EMAIL] L700
@@ -511,7 +511,7 @@ test(notes): add note creation tests
 
 3. Update [UPDATES:LOG] in CONTEXT.md
 ```markdown
-### 2025-11-03 15:30
+### 2025-11-15 15:30
 **Action:** Added email feature to MASTER
 **Modified:** [DB:SCHEMA_EMAIL] L700-750
 ```
@@ -529,6 +529,7 @@ test(notes): add note creation tests
 3. Run Pint before commit
 4. Write test if feature
 5. Update CONTEXT if significant change
+6. **Add @meta block if affects MASTER.md**
 
 **Significant changes:**
 - New database table
@@ -570,13 +571,13 @@ try {
 **Avoid N+1:**
 
 ```php
-// ❌ Bad
+// Bad
 $notes = Note::all();
 foreach ($notes as $note) {
     echo $note->user->name; // N queries
 }
 
-// ✅ Good
+// Good
 $notes = Note::with('user')->get();
 foreach ($notes as $note) {
     echo $note->user->name; // 1 query
@@ -663,6 +664,7 @@ $table->index(['user_id', 'created_at']);
 - Follow naming conventions
 - Include proper error handling
 - Add comments for business logic
+- **ADD @meta block if code affects MASTER.md**
 
 **On MASTER updates:**
 - Version bump in meta.json
@@ -670,6 +672,156 @@ $table->index(['user_id', 'created_at']);
 - Log entry with timestamp
 - Update INDEX if needed
 
+**On metadata protocol:**
+- Use 06_METADATA_PROTOCOL.md specification
+- Add @meta block for architectural changes
+- Use ASCII-only in PowerShell scripts
+- See POWERSHELL_STANDARDS.md for encoding rules
+
 ---
 
-**[PROMPTS:END]** [L745]
+## [RULES:METADATA_PROTOCOL] [L750]
+
+**When to add @meta block:**
+
+ALWAYS add when code affects:
+- Database schema changes
+- New models/controllers
+- Architecture decisions
+- Stack/dependency updates
+- API endpoint changes
+- Design system updates
+- Auth/authorization changes
+- Performance optimizations
+
+NEVER add for:
+- Bug fixes (no architectural impact)
+- Refactoring (same functionality)
+- Tests only
+- Comment/formatting changes
+- Minor UI tweaks
+
+**@meta block structure:**
+
+```php
+/**
+ * @meta-start
+ * @session: YYYY-MM-DD-NNN
+ * @file: path/to/file
+ * @refs: [MARKER, MARKER]
+ * @changes: Human-readable description
+ * @doc-update: [MARKER] ACTION details
+ * @doc-update: [MARKER] ACTION details
+ * @meta-end
+ */
+```
+
+**Required fields:**
+- @session: YYYY-MM-DD-NNN format
+- @file: Relative path to file
+- @refs: Array of MASTER.md markers (NO line numbers)
+- @changes: Clear description of changes
+- @doc-update: One or more update instructions
+
+**Optional fields:**
+- @feature: Feature name (kebab-case)
+- @tests: Related test class/method
+
+**Actions allowed:**
+- ADD: Append new content
+- MODIFY: Change existing (old -> new)
+- DELETE: Remove content
+- MOVE: Relocate between sections
+
+**Example:**
+
+```php
+// File: app/Models/User.php
+
+/**
+ * @meta-start
+ * @session: 2025-11-15-002
+ * @file: app/Models/User.php
+ * @refs: [DB:SCHEMA_USERS]
+ * @changes: Added avatar and timezone fields
+ * @doc-update: [DB:SCHEMA_USERS] ADD avatar VARCHAR(255) NULL
+ * @doc-update: [DB:SCHEMA_USERS] ADD timezone VARCHAR(50) DEFAULT 'UTC'
+ * @tests: UserTest::test_avatar_upload
+ * @meta-end
+ */
+
+namespace App\Models;
+
+class User extends Authenticatable
+{
+    protected $fillable = [
+        'name',
+        'email',
+        'password',
+        'avatar',      // NEW
+        'timezone',    // NEW
+    ];
+}
+```
+
+**CRITICAL rules:**
+- Use markers ONLY, never line numbers: `[DB:SCHEMA_USERS]` not `[DB:SCHEMA_USERS#L570]`
+- Multiple @doc-update lines allowed
+- Arrows in MODIFY: use `->` not Unicode `→`
+- See 06_METADATA_PROTOCOL.md for full specification
+
+---
+
+## [RULES:POWERSHELL_ENCODING] [L850]
+
+**For .ps1 PowerShell scripts:**
+
+NEVER use:
+- Emojis (checkmark, cross, warning, info, rocket, wave)
+- Unicode arrows (rightarrow, doublearrow)
+- Smart quotes (curly quotes/apostrophes)
+- Box drawing (unicode box characters)
+- Any character requiring Alt codes
+
+ALWAYS use:
+- ASCII equivalents: [OK] [ERROR] [WARN] [INFO]
+- Plain arrows: -> not unicode arrow
+- Straight quotes: " and ' only
+- Simple boxes: === or ---
+- Characters from standard US keyboard
+
+**Function templates:**
+
+```powershell
+function Write-Success { 
+    param([string]$Message) 
+    Write-Host "[OK] $Message" -ForegroundColor Green 
+}
+
+function Write-Error-Custom { 
+    param([string]$Message) 
+    Write-Host "[ERROR] $Message" -ForegroundColor Red 
+}
+
+function Write-Warning-Custom { 
+    param([string]$Message) 
+    Write-Host "[WARN] $Message" -ForegroundColor Yellow 
+}
+
+function Write-Info { 
+    param([string]$Message) 
+    Write-Host "[INFO] $Message" -ForegroundColor Cyan 
+}
+```
+
+**For .md documentation:**
+- UTF-8 freely
+- Emojis encouraged
+- Unicode symbols OK
+- Smart quotes OK
+
+See POWERSHELL_STANDARDS.md for complete rules.
+
+---
+
+**[PROMPTS:END]** [L920]

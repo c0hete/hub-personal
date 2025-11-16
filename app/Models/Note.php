@@ -5,12 +5,11 @@
 /**
  * @meta-start
  * @session: 2025-11-15-001
- * @type: model
  * @file: app/Models/Note.php
- * @feature: notes-system
- * @refs: [DB:SCHEMA_NOTES#L610]
- * @changes: Created Note model with user relationship
- * @doc-update: [ROADMAP:MVP#L3340] MARK notes-crud IN_PROGRESS
+ * @refs: [DB:SCHEMA_NOTES]
+ * @changes: Added priority and color fields to Note model
+ * @doc-update: [DB:SCHEMA_NOTES] ADD priority VARCHAR(10) DEFAULT 'medium'
+ * @doc-update: [DB:SCHEMA_NOTES] ADD color VARCHAR(20) DEFAULT 'yellow'
  * @meta-end
  */
 
@@ -41,18 +40,6 @@ class Note extends Model
     {
         return $this->belongsTo(User::class);
     }
-
-        // 
-          // sdsadasd
-          // sdsadasd
-            // sdsadasd
-             // sdsadasd
-                // sdsadasd
-                   // sdsadasd
-                    // sdsadasd
-                        // sdsadasd
-                        // sdsadasd
-                   
 
              
 }
