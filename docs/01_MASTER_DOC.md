@@ -705,6 +705,7 @@ php artisan migrate:fresh --seed
 Category.php in app/Models/
 Note.php relationships and scopes implemented
 Tag.php in app/Models/
+NoteController.php with CRUD implementation
 [L920]
 
 ```
