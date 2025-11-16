@@ -474,6 +474,7 @@ color VARCHAR(20) DEFAULT 'yellow'
 archived BOOLEAN DEFAULT false
 status VARCHAR(20) DEFAULT 'active'
 Categories table created (user-specific)
+Migration created and tested
 [L590]
 
 ```sql
@@ -1390,6 +1391,7 @@ color VARCHAR(20) DEFAULT 'yellow'
 archived BOOLEAN DEFAULT false
 status VARCHAR(20) DEFAULT 'active'
 Categories table created (user-specific)
+Migration created and tested
 L590
 - [DEPLOY:CICD] L3050
 - [ROADMAP:MVP] L3320
