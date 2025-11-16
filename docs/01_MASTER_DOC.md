@@ -467,6 +467,8 @@ priority VARCHAR(10) DEFAULT 'medium'
 color VARCHAR(20) DEFAULT 'yellow'
 priority VARCHAR(10) DEFAULT 'medium'
 color VARCHAR(20) DEFAULT 'yellow'
+priority VARCHAR(10) DEFAULT 'medium'
+color VARCHAR(20) DEFAULT 'yellow'
 [L590]
 
 ```sql
@@ -1372,6 +1374,8 @@ Week 4: Testing + Deploy
 **Quick access:**
 - [QUICK:STACK] L420
 - [DB:SCHEMA_NOTES]
+priority VARCHAR(10) DEFAULT 'medium'
+color VARCHAR(20) DEFAULT 'yellow'
 priority VARCHAR(10) DEFAULT 'medium'
 color VARCHAR(20) DEFAULT 'yellow'
 priority VARCHAR(10) DEFAULT 'medium'
