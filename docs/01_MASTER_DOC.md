@@ -472,6 +472,7 @@ color VARCHAR(20) DEFAULT 'yellow'
 priority VARCHAR(10) DEFAULT 'medium'
 color VARCHAR(20) DEFAULT 'yellow'
 archived BOOLEAN DEFAULT false
+status VARCHAR(20) DEFAULT 'active'
 [L590]
 
 ```sql
@@ -1386,6 +1387,7 @@ color VARCHAR(20) DEFAULT 'yellow'
 priority VARCHAR(10) DEFAULT 'medium'
 color VARCHAR(20) DEFAULT 'yellow'
 archived BOOLEAN DEFAULT false
+status VARCHAR(20) DEFAULT 'active'
 L590
 - [DEPLOY:CICD] L3050
 - [ROADMAP:MVP] L3320
