@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;  // ← AGREGAR
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;  
 
 /**
  * @meta-start
@@ -21,7 +21,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;  // ← AGREGAR
 
 class NoteController extends Controller
 {
-    use AuthorizesRequests;  // ← AGREGAR
+    use AuthorizesRequests;  
 
     /**
      * Mostrar lista de notas del usuario
