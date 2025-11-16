@@ -4,12 +4,11 @@
 
 /**
  * @meta-start
- * @session: 2025-11-15-001
+ * @session: 2025-11-15-002
  * @file: app/Models/Note.php
  * @refs: [DB:SCHEMA_NOTES]
- * @changes: Added priority and color fields to Note model
- * @doc-update: [DB:SCHEMA_NOTES] ADD priority VARCHAR(10) DEFAULT 'medium'
- * @doc-update: [DB:SCHEMA_NOTES] ADD color VARCHAR(20) DEFAULT 'yellow'
+ * @changes: Added status field for note workflow
+ * @doc-update: [DB:SCHEMA_NOTES] ADD status VARCHAR(20) DEFAULT 'active'
  * @meta-end
  */
 

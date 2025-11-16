@@ -144,15 +144,14 @@ if (!(Test-Path $ParserScript)) {
     exit 1
 }
 
-$resolvedPath = Resolve-Path $Path -ErrorAction SilentlyContinue
-if (!$resolvedPath) {
+if (!(Test-Path $Path)) {
     Write-Error-Custom "Path not found: $Path"
     exit 1
 }
 
 try {
     $watcher = New-Object System.IO.FileSystemWatcher
-    $watcher.Path = $resolvedPath.Path
+    $watcher.Path = $Path
     $watcher.IncludeSubdirectories = $Recursive
     $watcher.EnableRaisingEvents = $true
     $watcher.Filter = "*.*"
