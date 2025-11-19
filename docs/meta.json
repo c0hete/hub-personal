@@ -34,7 +34,7 @@
                           "format":  "marker-based",
                           "language":  "en-technical"
                       },
-    "version":  "2.1.14",
+    "version":  "2.1.18",
     "testing":  {
                     "framework":  "Pest",
                     "coverage_target":  80,
