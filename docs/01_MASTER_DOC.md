@@ -1078,7 +1078,9 @@ Route::middleware(['auth', 'verified'])->group(function() {
 
 ---
 
-## [AUTH:POLICY] [L1900]
+## [AUTH:POLICY]
+TagPolicy with view, update, delete
+[L1900]
 
 ```php
 // app/Policies/NotePolicy.php
