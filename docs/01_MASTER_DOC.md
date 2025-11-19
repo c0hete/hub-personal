@@ -832,7 +832,9 @@ export function useNotes() {
 
 ---
 
-## [ARCH:ROUTING] [L1100]
+## [ARCH:ROUTING]
+routes/web/notes.php for notes module
+[L1100]
 
 ### Inertia Routes
 ```php
