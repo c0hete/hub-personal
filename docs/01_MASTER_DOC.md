@@ -47,6 +47,7 @@ Notes(quick+scheduled) | Calendar | Tags | Gamification | Email | Meditation | Q
 Tag selection in note creation form
 Tag selection in note creation form
 Tag selection in note editing form
+Tag badges display in note cards
 [L120]
 
 ### Quick Notes (no date)
