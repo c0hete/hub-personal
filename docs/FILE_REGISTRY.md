@@ -38,6 +38,7 @@
 | ENCODING_GUIDE.md | 1.0 | ACTIVE | PowerShell encoding reference | docs/ |
 | ENCODING_QUICKFIX.md | 1.0 | ACTIVE | Quick encoding fix guide | docs/ |
 
+
 ### Scripts (Working)
 
 | File | Version | Status | Purpose | Location |

@@ -19,6 +19,8 @@ $active = @(
     "FULL_PROCESS_REVIEW_2025-11-16.md",
     "ACTION_PLAN_2025-11-16.md",
     "PARSER_USAGE_GUIDE.md",
+    "ENCODING_GUIDE.md",        # AGREGAR
+    "ENCODING_QUICKFIX.md",     # AGREGAR
     "08_PARSER.ps1",
     "07_WATCHER.ps1",
     "update_docs.ps1",
