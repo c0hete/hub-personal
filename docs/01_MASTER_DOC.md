@@ -997,7 +997,9 @@ p { font-size: 1rem; font-weight: 400; }
 
 ---
 
-## [DESIGN:COMPONENTS] [L1600]
+## [DESIGN:COMPONENTS]
+TagInput.vue with autocomplete for tags
+[L1600]
 
 ### Button
 ```vue
