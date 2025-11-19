@@ -299,7 +299,9 @@ Vue3.4 | Inertia1.0 | Vite5 | Pinia2.1 | Tailwind3.4 | HeadlessUI
 
 ---
 
-## [STACK:FRONTEND] [L500]
+## [STACK:FRONTEND]
+@vueuse/core@14.0.0 for composables (useDebounceFn in TagInput)
+[L500]
 
 ### Vue 3.4
 **Style:** Composition API
