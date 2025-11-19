@@ -688,6 +688,25 @@ php artisan migrate:rollback
 php artisan migrate:fresh --seed
 ```
 
+
+## [DB:SEEDERS]
+TagSeeder for creating default tags per user
+[L875]
+
+**Purpose:** Database seeders for initial data population
+
+**TagSeeder:**
+- Creates common default tags for all users
+- Tags: Personal, Trabajo, Urgente, Ideas, Proyecto, Recordatorio, Importante, Pendiente
+- Auto-assigns colors
+
+**Commands:**
+```bash
+php artisan db:seed --class=TagSeeder
+php artisan db:seed  # Run all seeders
+```
+
+---
 ---
 ---
 
@@ -1389,3 +1408,5 @@ Week 4: Testing + Deploy
 **[REF:INDEX]** See _INDEX.md
 
 ---
+
+
