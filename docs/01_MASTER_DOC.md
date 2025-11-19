@@ -46,6 +46,7 @@ Notes(quick+scheduled) | Calendar | Tags | Gamification | Email | Meditation | Q
 ## [PRD:NOTES_SYSTEM]
 Tag selection in note creation form
 Tag selection in note creation form
+Tag selection in note editing form
 [L120]
 
 ### Quick Notes (no date)
