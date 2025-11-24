@@ -17,3 +17,13 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+
+# Temporary session files (generated per session, not committed)
+SESSION_*.md
+CURRENT_STATUS.txt
+QUICK_START_*.md
+setup-shadcn.ps1
+
+# Claude Code context (auto-generated)
+.claude/context.md
+.claude/session-context.md
