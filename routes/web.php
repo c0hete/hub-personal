@@ -26,6 +26,11 @@ Route::get('/', function () {
     ]);
 });
 
+// Hub entry point (redirect or dashboard)
+Route::get('/hub', function () {
+    return redirect('/dashboard');
+});
+
 // Dashboard
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
