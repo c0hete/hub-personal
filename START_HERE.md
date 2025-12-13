@@ -192,6 +192,13 @@ Al iniciar cada sesión:
 - [ ] Entiendo el proceso de work@meta blocks
 - [ ] Sé ejecutar `.\08_PARSER.ps1`
 
+### Checklist recurrente antes de commitear
+- [ ] Confirmo que cada archivo relevante tiene su bloque @meta actualizado
+- [ ] Ejecuto .\hub.ps1 parse <archivo> (o .\hub.ps1 update) para volcar los @meta a MASTER_DOC
+- [ ] Reviso y hago git add docs/01_MASTER_DOC_v2.1.25.md (y cualquier doc tocada) antes de commitear
+- [ ] Cuando avisamos que estamos listos para commitear, entrego tambi?n el comando git commit -m "..." listo para copiar y pegar
+
+
 ---
 
 ## 🎯 TL;DR (Para Impacientes)

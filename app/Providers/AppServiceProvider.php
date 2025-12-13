@@ -2,36 +2,42 @@
 
 namespace App\Providers;
 
-use App\Models\Note;
-use App\Policies\NotePolicy;
-use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Cache\RateLimiting\Limit;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\RateLimiter;
+use Illuminate\Support\ServiceProvider;
 
 /**
  * @meta-start
- * @session: 2025-11-16-001
- * @file: app/Providers/AuthServiceProvider.php
- * @refs: [AUTH:POLICY]
- * @changes: Registered NotePolicy for authorization
- * @doc-update: [AUTH:POLICY] ADD NotePolicy registered in AuthServiceProvider
+ * @session: 2025-11-25-001
+ * @file: app/Providers/AppServiceProvider.php
+ * @refs: [ARCH:EVENTS]
+ * @changes: Recreated AppServiceProvider to register hub-api rate limiter
+ * @doc-update: [ARCH:EVENTS] ADD rate limiter for supervisor API
  * @meta-end
  */
-
-class AuthServiceProvider extends ServiceProvider
+class AppServiceProvider extends ServiceProvider
 {
     /**
-     * The policy mappings for the application.
-     *
-     * @var array<class-string, class-string>
+     * Register application services.
      */
-    protected $policies = [
-        Note::class => NotePolicy::class,
-    ];
+    public function register(): void
+    {
+        //
+    }
 
     /**
-     * Register any authentication / authorization services.
+     * Bootstrap application services.
      */
     public function boot(): void
     {
-        //
+        RateLimiter::for('hub-api', function (Request $request) {
+            // Rate limit by token ID (not user ID) to differentiate supervisor instances
+            $key = $request->user()?->currentAccessToken()?->id
+                ?? $request->user()?->getAuthIdentifier()
+                ?? $request->ip();
+
+            return Limit::perMinute(60)->by($key);
+        });
     }
 }
