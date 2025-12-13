@@ -24,6 +24,7 @@ CURRENT_STATUS.txt
 QUICK_START_*.md
 setup-shadcn.ps1
 
-# Claude Code context (auto-generated)
+# Claude Code context (auto-generated, personal workspace files)
 .claude/context.md
 .claude/session-context.md
+claude.md
